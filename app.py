@@ -42,7 +42,7 @@ SAMPLES = {
     ),
 }
 
-st.set_page_config(page_title="Stylometric Profiler", layout="wide")
+st.set_page_config(page_title="Job Posting Risk Check & Stylometric Profiler", page_icon="🔎", layout="wide")
 
 
 def style(fig, h=360):

@@ -83,12 +83,12 @@ def render_risk_page(style):
                 fig = go.Figure(go.Bar(
                     x=agg.values, y=agg.index, orientation="h", marker_color=BAR,
                     marker_line=dict(color="white", width=2),
-                    text=[f"{v:.0f}" for v in agg.values], textposition="outside",
+                    text=[f"{v:.0f}" for v in agg.values], textposition="outside", cliponaxis=False,
                     textfont=dict(color="#52514e"),
                     hovertemplate="%{y}: %{x:.0f} points<extra></extra>",
                 ))
                 fig.update_layout(title="What drives the score", bargap=0.35)
-                fig.update_xaxes(title="points (total capped at 100)")
+                fig.update_xaxes(title="points (total capped at 100)", range=[0, max(agg.values) * 1.15])
                 st.plotly_chart(style(fig, 90 + 38 * len(agg)), use_container_width=True)
             else:
                 st.success("No red-flag patterns found.")
